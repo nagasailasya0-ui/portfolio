@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. Naga Sai Lasya | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #08131d;
+            color: #edf5f7;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #102330;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h2 {
+            color: #61e0c1;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #61e0c1;
+        }
+
+        section {
+            padding: 75px 10%;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: 1.15;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #61e0c1;
+        }
+
+        .hero p,
+        .description {
+            color: #a8bac4;
+            margin: 15px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #61e0c1;
+            color: #08131d;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 8px 0 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #7aaeff;
+            transform: translateY(-3px);
+        }
+
+        .dna {
+            font-size: 130px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px #61e0c155);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content {
+            animation: fadeIn 1.2s ease;
+        }
+
+        h2.section-title {
+            font-size: 34px;
+            color: #61e0c1;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #102330;
+            padding: 25px;
+            border: 1px solid #29414e;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #61e0c1;
+            box-shadow: 0 10px 30px #0003;
+        }
+
+        .card h3 {
+            color: #61e0c1;
+            margin-bottom: 12px;
+        }
+
+        .card p,
+        .card li {
+            color: #b8c8d0;
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tags span {
+            background: #193745;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #61e0c1;
+            text-decoration: none;
+        }
+
+        .game-box {
+            max-width: 650px;
+            background: #102330;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #29414e;
+        }
+
+        .game-box h3 {
+            color: #61e0c1;
+            margin-bottom: 15px;
+        }
+
+        #answers {
+            display: grid;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .answer {
+            padding: 12px;
+            background: #193745;
+            color: white;
+            border: 1px solid #29414e;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .answer:hover {
+            border-color: #61e0c1;
+        }
+
+        #feedback {
+            margin: 15px 0;
+            color: #61e0c1;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            background: #102330;
+            border: 1px solid #29414e;
+            border-radius: 8px;
+            color: white;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        footer {
+            text-align: center;
+            background: #102330;
+            padding: 25px;
+            color: #a8bac4;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .hero {
+                text-align: center;
+                justify-content: center;
+            }
+
+            section {
+                padding: 55px 7%;
+            }
+
+            .dna {
+                font-size: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>LASYA.</h2>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#game">Game</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="highlight">BIOINFORMATICS | AI/ML | DATA SCIENCE</p>
+
+        <h1>K. Naga Sai <span class="highlight">Lasya</span></h1>
+
+        <h3>Aspiring Bioinformatician & AI/ML Intern</h3>
+
+        <p>
+            Building computational solutions for biological data through
+            Python, machine learning and bioinformatics.
+            Interested in transforming data into meaningful scientific insights.
+        </p>
+
+        <a href="#projects" class="btn">Explore Projects</a>
+        <a href="#contact" class="btn">Contact Me</a>
+    </div>
+
+    <div class="dna">🧬</div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="card">
+        <p>
+            I am pursuing a BSc at Yogi Vemana University and have gained
+            practical experience as an AI/ML intern. I am interested in
+            bioinformatics, biological data analysis, machine learning
+            and computational biology.
+        </p>
+
+        <p class="description">
+            My goal is to develop my programming and analytical skills
+            and apply computational techniques to biological problems.
+        </p>
+    </div>
+</section>
+
+<section id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="card">
+        <h3>AI/ML Intern — Exameets Skillverse</h3>
+        <p>June 2026 – September 2026</p>
+
+        <ul>
+            <li>Prepared and cleaned datasets using Python, Pandas and NumPy.</li>
+            <li>Developed and evaluated machine-learning models using scikit-learn.</li>
+            <li>Practised hyperparameter tuning and cross-validation.</li>
+            <li>Maintained notebooks and repositories using Git and VS Code.</li>
+            <li>Built a Django demonstration interface for model predictions.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Programming & Data Analysis</h3>
+            <div class="tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>Jupyter Notebook</span>
+                <span>Excel</span>
+                <span>Biopython</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Machine Learning</h3>
+            <div class="tags">
+                <span>Scikit-learn</span>
+                <span>Data Preprocessing</span>
+                <span>Feature Engineering</span>
+                <span>Model Evaluation</span>
+                <span>Cross-validation</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Bioinformatics</h3>
+            <div class="tags">
+                <span>Sequence Analysis</span>
+                <span>Biological Data</span>
+                <span>Data Visualization</span>
+                <span>Reproducible Research</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Tools</h3>
+            <div class="tags">
+                <span>GitHub</span>
+                <span>VS Code</span>
+                <span>Django</span>
+                <span>Kaggle</span>
+                <span>Teachable Machine</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🧬 Biological Dataset Classification</h3>
+
+            <p>
+                A machine-learning workflow for preparing and classifying
+                biological data using Python, Pandas and scikit-learn.
+            </p>
+
+            <div class="tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>Machine Learning</span>
+                <span>Kaggle</span>
+            </div>
+
+            <a class="project-link" href="https://github.com/" target="_blank">
+                GitHub ↗
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>💻 ML Model Web Application</h3>
+
+            <p>
+                A Django-based demonstration interface designed to display
+                machine-learning model predictions.
+            </p>
+
+            <div class="tags">
+                <span>Python</span>
+                <span>Django</span>
+                <span>JavaScript</span>
+                <span>Git</span>
+            </div>
+
+            <a class="project-link" href="https://github.com/" target="_blank">
+                View Code ↗
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="game">
+    <h2 class="section-title">DNA Sequence Challenge 🧬</h2>
+
+    <div class="game-box">
+        <h3>Test Your Biology Knowledge</h3>
+
+        <p id="question">
+            Click Start Game to answer five questions.
+        </p>
+
+        <div id="answers"></div>
+
+        <p id="feedback"></p>
+
+        <p>Score: <span id="score">0</span></p>
+
+        <button class="btn" id="startButton" onclick="startGame()">
+            Start Game
+        </button>
+
+        <button class="btn" id="nextButton" onclick="nextQuestion()" hidden>
+            Next Question
+        </button>
+    </div>
+</section>
+
+<section id="education">
+    <h2 class="section-title">Education</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>BSc — Yogi Vemana University</h3>
+            <p>2025–2028</p>
+            <p>Relevant areas: programming for data analysis, statistics,
+            introductory biology and laboratory methods.</p>
+        </div>
+
+        <div class="card">
+            <h3>Intermediate — Sri Chaitanya Junior College</h3>
+            <p>2023–2025</p>
+            <p>Science stream.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+
+    <div class="card">
+        <p>Email: nagasailasya0@gmail.com</p>
+        <p>Location: Kadapa, Andhra Pradesh, India</p>
+
+        <p>
+            <a class="project-link" href="https://github.com/" target="_blank">GitHub</a> |
+            <a class="project-link" href="https://linkedin.com/" target="_blank">LinkedIn</a> |
+            <a class="project-link" href="https://kaggle.com/" target="_blank">Kaggle</a>
+        </p>
+
+        <form id="contactForm">
+            <label for="name">Your Name</label>
+            <input id="name" type="text" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input id="email" type="email" placeholder="Enter your email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Write your message" required></textarea>
+
+            <button class="btn" type="submit">Open Email Draft</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 K. Naga Sai Lasya | Bioinformatics Portfolio</p>
+    <p>Turning biological data into meaningful insights.</p>
+</footer>
+
+<script>
+const questions = [
+    {
+        question: "Which DNA base pairs with adenine (A)?",
+        options: ["Guanine (G)", "Thymine (T)", "Cytosine (C)", "Uracil (U)"],
+        answer: 1
+    },
+    {
+        question: "What is the complementary DNA sequence for ATGC?",
+        options: ["TACG", "UACG", "ATGC", "GCAT"],
+        answer: 0
+    },
+    {
+        question: "Which base is found in RNA instead of thymine?",
+        options: ["Cytosine", "Adenine", "Uracil", "Guanine"],
+        answer: 2
+    },
+    {
+        question: "Which Python library is useful for biological computation?",
+        options: ["Biopython", "PaintPy", "SlideKit", "WebBrush"],
+        answer: 0
+    },
+    {
+        question: "DNA is made from which building blocks?",
+        options: ["Amino acids", "Nucleotides", "Fatty acids", "Vitamins"],
+        answer: 1
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let gameQuestions = [];
+
+function startGame() {
+    currentQuestion = 0;
+    score = 0;
+
+    gameQuestions = [...questions].sort(() => Math.random() - 0.5);
+
+    document.getElementById("score").textContent = score;
+    document.getElementById("startButton").hidden = true;
+
+    showQuestion();
+}
+
+function showQuestion() {
+    const q = gameQuestions[currentQuestion];
+
+    document.getElementById("question").textContent =
+        `Question ${currentQuestion + 1}/${gameQuestions.length}: ${q.question}`;
+
+    document.getElementById("feedback").textContent = "";
+    document.getElementById("nextButton").hidden = true;
+
+    const answers = document.getElementById("answers");
+    answers.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.className = "answer";
+        button.textContent = option;
+        button.onclick = () => checkAnswer(index, q.answer, answers);
+        answers.appendChild(button);
+    });
+}
+
+function checkAnswer(selected, correct, answers) {
+    const buttons = answers.querySelectorAll("button");
+
+    buttons.forEach((button, index) => {
+        button.disabled = true;
+
+        if (index === correct) {
+            button.style.borderColor = "#61e0c1";
+        }
+
+        if (index === selected && selected !== correct) {
+            button.style.borderColor = "#ff8b9a";
+        }
+    });
+
+    if (selected === correct) {
+        score++;
+        document.getElementById("score").textContent = score;
+        document.getElementById("feedback").textContent = "Correct! Great job.";
+    } else {
+        document.getElementById("feedback").textContent =
+            "Not quite. Review the correct answer and keep learning!";
+    }
+
+    document.getElementById("nextButton").hidden = false;
+}
+
+function nextQuestion() {
+    currentQuestion++;
+
+    if (currentQuestion < gameQuestions.length) {
+        showQuestion();
+    } else {
+        document.getElementById("question").textContent =
+            `🧬 Game Complete! Your score is ${score}/${gameQuestions.length}.`;
+
+        document.getElementById("answers").innerHTML = "";
+        document.getElementById("feedback").textContent =
+            score === 5 ? "Excellent! You answered every question correctly." :
+            "Thanks for playing! Try again to improve your score.";
+
+        document.getElementById("nextButton").hidden = true;
+        document.getElementById("startButton").hidden = false;
+        document.getElementById("startButton").textContent = "Play Again";
+    }
+}
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const subject = encodeURIComponent("Portfolio message from " + name);
+    const body = encodeURIComponent(
+        "Name: " + name + "\nEmail: " + email + "\n\n" + message
+    );
+
+    window.location.href =
+        "mailto:nagasailasya0@gmail.com?subject=" + subject + "&body=" + body;
+});
+</script>
+
+</body>
+</html>
